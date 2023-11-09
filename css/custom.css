@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+/* 
+
+Advanced Interface Design with CSS - Lab 9 Fonts
+
+Christopher Blouin
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Start of Genereal Styles */
+
+html	{
+	height: 100%;
+}
+
+h1, footer p small {
+    font-family: "operetta-8", serif;
+    font-weight: 200;
+    font-style: normal;
+    letter-spacing: 0.05rem;
+}
+
+/* Global paragraph line-height */
+p {
+    line-height: 1.4;
+}
+
+/* Targetting the first heading element directly descendant of the body element, applying a bottom margin of 2rem. */
+body > header:nth-of-type(1) {
+    margin-bottom: 2rem;
+}
+
+/* Targetting the first descendant paragraph of the main element, applying a max-width of the paragraph container and centering the container with an automatic margin on the left and right. */
+main > p:nth-child(1) {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Centering all of the text throughout the document using a combination selector. */
+main > p:nth-child(1),
+header, section, footer {
+    text-align: center;
+}
+
+/* Appy top and bottom white space to each section element in the HTML document. */
+section {
+    margin: 3rem 0;
+}
+
+/* Bottom margin white space of all section header elements. */
+section header {
+    margin-bottom: 1.5rem;
+}
+
+/* Setting a max-width to the all header elements and paragraphs within section elements, centering the containers with a magin of auto on the left and right. */
+header, section p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+body > header {
+    max-width: 100%;
+}
+
+/* Global h2 styles. */
+h2 {
+    font-size: 48px;
+    /* All h2 elements will appear in uppercase letters which better match the mastheads of the news brands. */
+    text-transform: uppercase;
+    /* Overwrite the default line-height on the heading element, setting it to 1.2 */
+    line-height: 1.2;
+}
+
+/* End of Genereal Styles  */
+
+/* Ottawa Citizen Heading Styles */
+
+main section:nth-of-type(1) h2 {
+    /* Defining the opretta font from the Adobe Type kit, reference to the font here: https://fonts.adobe.com/fonts/operetta */
+    font-family: "operetta-8", serif;
+    /* Setting the font-weight and style to the associated properties from the Adobe web project outline. */
+    font-weight: 400;
+    font-style: normal;
+    /* Top and bottom padding to allow the background image some additional space. */
+    padding: 0.5rem 0;
+    background-image: url("../images/logo_ottawacitizen.png");
+    /* The background image cannot repeat, is centered, and contains it's aspect ratio in the container regardless of the size. */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* Start of The Globe and Mail Heading Styles */
+
+main section:nth-of-type(2) h2 {
+    /* Setting the position of the h2 element to relative to allow for more control of pseudo elements and absolute positioning. */
+    position: relative;
+    /* Defining the utopia-std font from the Adobe Type kit, reference to the font here: https://fonts.adobe.com/fonts/utopia */
+    font-family: "utopia-std-display", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* Background and text color to match the Globe and Mail masthead theme. */
+    background-color: #dd2222;
+    color: #fff;
+    /* Max-width of the heading, centering with a automatic margin property. */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Using the after pseudo selector to positioning the background image absolutely, but relative to the parent container. */
+main section:nth-of-type(2) h2::after {
+    /* Setting the content property to empty */
+    content: "";
+    /* Absolute positioning to allow for greater control of background image. */
+    position: absolute;
+    /* Container width and height */
+    width: 40px;
+    height: 40px;
+    /* Background image of the pseudo element set to the globe and mail leaf. */
+    background-image: url("../images/the-globe-and-mail-leaf.png");
+    /* Background positioning and aspect ratio properties. */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* Positioning properties to adjust container alignment relative to the parent. */
+    bottom: 20px;
+    left: 505px;
+}
+
+/* End of The Globe and Mail Heading Styles */
+
+
+/* Start of National Post Heading Styles */
+
+main section:nth-of-type(3) h2 {
+    /* Setting the parent h2 to position relative. */
+    position: relative;
+    /* Defining the utopia-std font from the Adobe Type kit, reference to the font here: https://fonts.adobe.com/fonts/chapman */
+    font-family: "chapman", sans-serif;
+    /* Font weight and stype properties. */
+    font-weight: 700;
+    font-style: normal;
+    /* Background and text colors to match the National Post masthead theme. */
+    background-color: #fad11c;
+    color: #000;
+    /* Container max-width and alignment with automatic margins. */
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+main section:nth-of-type(3) h2::after {
+    /* Absolute positioning of the after pseudo element for the third h2. */
+    content: "";
+    position: absolute;
+    /* Width and height properties on the container. */
+    width: 100%;
+    height: 30px;
+    /* Background image and positioning properties. */
+    background-image: url("../images/national-post-logo-leaf.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* Containing alignment, using bottom and left, as the positioning is set to absolute. */
+    bottom: 18px;
+    left: 60px;
+}
+
+/* End of National Post Heading Styles */
+
+
+/* Start of Toronto Star Heading Styles */
+
+main section:nth-of-type(4) h2 {
+    position: relative;
+    /* Defining the utopia-std font from the Adobe Type kit, reference to the font here: https://fonts.adobe.com/fonts/le-monde-livre */
+    font-family: "le-monde-livre-std", serif;
+    /* Font weight and style properties. */
+    font-weight: 400;
+    font-style: normal;
+    /* Background and color properties to match the Toronto Star masthead theme. */
+    background-color: #0065a4;
+    color: #64cdf5;
+    /* Container max-width and alignment with automatic margins. */
+    max-width: 390px;
+    margin: 0 auto;
+}
+
+/* Using a combination selector for the before and after selectors, to prevent duplicate properties. */
+main section:nth-of-type(4) h2::before,
+main section:nth-of-type(4) h2::after {
+    /* Position set to absolute. */
+    content: "";
+    position: absolute;
+    /* Width and height are the same on both the left and right Toronto Star background image containers. */
+    width: 100%;
+    height: 58px;
+    /* Prevent the images from repeating */
+    background-repeat: no-repeat;
+    /* Maintain image aspect ratio */
+    background-size: contain;
+    
+}
+
+/* Using the before pseudo element to position the left background image. */
+main section:nth-of-type(4) h2::before {
+    background-image: url("../images/the-star-bg-left.png");
+    right: 30px;
+}
+
+/* Using the after pseudo element to position the right background image. */
+main section:nth-of-type(4) h2::after {
+    background-image: url("../images/the-star-bg-right.png");
+    left: 30px;
+    background-position: right;
+}
+
+/* Text color of the em element withing the fourth h2 element set to white. */
+main section:nth-of-type(4) h2 em {
+    color: #fff;
+}
+
+/* End of Toronto Star Heading Styles */
+
+body > header,
+footer {
+    padding: 1rem 0;
+    background-color: #333333;
+    color: #fff;
+}
